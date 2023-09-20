@@ -1,4 +1,11 @@
 FILEPATH = "todos.txt"
+DELETED_TODOS_FILEPATH = "deleted_todos.txt"
+
+
+def get_deleted_todos(filepath=DELETED_TODOS_FILEPATH):
+    with open(filepath, 'r') as file_local:
+        deleted_todos_local = file_local.readlines()
+    return deleted_todos_local
 
 
 def get_todos(filepath=FILEPATH):
@@ -17,6 +24,15 @@ def write_todos(todos_arg, filepath=FILEPATH):
     with open(filepath, 'w') as file_local:
         file_local.writelines(todos_arg)
 
+
+def write_deleted_todo(todos_arg, filepath=DELETED_TODOS_FILEPATH):
+    with open(filepath, 'w') as file_local:
+        file_local.writelines(todos_arg)
+
+
+def empty_deleted_todos(filepath=DELETED_TODOS_FILEPATH):
+    with open(filepath, 'w') as file:
+        pass
 
 if __name__ == "__main__":
     print("Hello there!")
